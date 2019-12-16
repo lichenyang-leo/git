@@ -60,8 +60,14 @@ git log –stat: show diffstat of changes introduced at each commit.
  　  git checkout --a.txt    :撤销对a.txt的修改,这里分两种情况,1 如果a.txt已修改,但未提交到暂存区,则会将a.txt撤销到和版本库相同的状态. 2 如果a.txt已经添加到暂存区又做了修改,则会将a.txt撤销到刚添加到暂存区时候的状态.
 
 　　git reset HEAD a.txt   :如果a.txt已经修改并添加到暂存区,但我们希望将它撤回到工作区,使用此命令 
+  
+   git revert :反转撤销提交.只要把出错的提交(commit)的名字(reference)作为参数传给命令就可以了.
+               git revert HEAD: 撤销最近的一个提交.
+               git revert会创建一个反向的新提交,可以通过参数-n来告诉Git先不要提交.
 
 　　git rm a.txt   :从版本库中删除a.txt
+                   git rm –cached: 从staging区移除文件,但留在工作目录中.
+                   git rm –cached从功能上等同于git reset HEAD,清除了缓存区,但不动工作目录树.
 
 　　git pull <远程主机名> <远程分支名>:<本地分支名>:   取回远程主机某个分支的更新，再与本地的指定分支合并
 
@@ -86,3 +92,7 @@ git log –stat: show diffstat of changes introduced at each commit.
 　　git merge develop:将名为develop的分支合并到当前分支上来
 
 　　git branch -d develop: 将名为develop的分支删除
+  
+  
+  
+ 更加详细网址： https://zhuanlan.zhihu.com/p/20750402
